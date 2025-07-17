@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hospitality Applications Across Sectors</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAVIGATION BAR -->
+  <nav class="navbar">
+    <h2>Hospitality Sectors</h2>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+    <div class="nav-links" id="nav-links">
+      <button onclick="showDropdown(event, 'tourism')">Tourism & Travel</button>
+      <button onclick="showDropdown(event, 'corporate')">Corporate Business Stays</button>
+      <button onclick="showDropdown(event, 'student')">Student Accommodation</button>
+      <button onclick="showDropdown(event, 'professionals')">Working Professionals</button>
+      <button onclick="showDropdown(event, 'backpacker')">Backpacker Hostels</button>
+      <button onclick="showDropdown(event, 'medical')">Medical Tourism</button>
+      <button onclick="showDropdown(event, 'event')">Event & Wedding</button>
+      <button onclick="showDropdown(event, 'airport')">Airport Transit</button>
+    </div>
+  </nav>
+
+  <!-- Dropdown menu -->
+  <div id="dropdown-menu">
+    <p onclick="selectOption('image')"> Show Image</p>
+    <p onclick="selectOption('feature')">Show Feature</p>
+  </div>
+
+  
+
+
+  <div id="page2">
+    <div class="sector-box" id="tourism-box">Tourism & Travel</div>
+    <div class="sector-box" id="corporate-box">Corporate Business Stays</div>
+    <div class="sector-box" id="student-box">Student Accommodation</div>
+    <div class="sector-box" id="professionals-box">Working Professionals</div>
+    <div class="sector-box" id="backpacker-box">Backpacker Hostels</div>
+    <div class="sector-box" id="medical-box">Medical Tourism</div>
+    <div class="sector-box" id="event-box">Event & Wedding</div>
+    <div class="sector-box" id="airport-box">Airport Transit</div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,178 @@
+/* === RESET === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* === BODY === */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f3f3f3;
+  padding: 20px;
+}
+
+/* === NAVIGATION BAR === */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to right, #667eea, #764ba2);
+  color: white;
+  padding: 15px 20px;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.navbar h2 {
+  font-size: 1.5rem;
+}
+
+/* === HAMBURGER ICON === */
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* === NAV LINKS === */
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.nav-links button {
+  background: white;
+  color: #333;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.nav-links button:hover {
+  background: #ddd;
+}
+
+/* === DROPDOWN MENU === */
+#dropdown-menu {
+  position: absolute;
+  display: none;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 10px;
+  border-radius: 8px;
+  z-index: 1000;
+  width: 160px;
+}
+
+#dropdown-menu p {
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+#dropdown-menu p:hover {
+  background-color: #f0f0f0;
+}
+
+/* === BOX LAYOUT === */
+#page2 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 30px;
+}
+
+/* === SECTOR BOX === */
+.sector-box {
+  width: 100%;
+  max-width: 300px;
+  height: 200px;
+  flex: 1 1 300px;
+  background-color: #fff;
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  text-align: center;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+
+/* Default sector title (before image or features) */
+
+
+
+/* === IMAGE INSIDE BOX === */
+.sector-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* === FEATURE LIST === */
+.sector-box ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  text-align: left;
+  font-size: 1rem;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    display: none;
+    margin-top: 10px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links button {
+    width: 100%;
+    text-align: left;
+    padding: 10px;
+  }
+
+  .navbar h2 {
+    font-size: 1.2rem;
+  }
+
+  .sector-box {
+    height: auto;
+    min-height: 150px;
+  }
+
+  #dropdown-menu {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-links button {
+    font-size: 0.9rem;
+  }
+
+  .sector-box {
+    width: 90%;
+  }
+}
+
+

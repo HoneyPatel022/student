@@ -1,151 +1,63 @@
-// window.onload = () => {
-//   const allBoxes = document.querySelectorAll('.sector-box');
-//   allBoxes.forEach(box => box.innerHTML = '');
-// };
 
 
+const sectorTitles = {
+  tourism: "Tourism & Travel",
+  corporate: "Corporate Business Stays",
+  student: "Student Accommodation",
+  professionals: "Working Professionals",
+  backpacker: "Backpacker Hostels",
+  medical: "Medical Tourism",
+  event: "Event & Wedding",
+  airport: "Airport Transit"
+};
 
-// let currentSector = "";
+const sectorFeatures = {
+  tourism: "Experience scenic beauty and cultural exploration.",
+  corporate: "Comfortable and professional stay for business needs.",
+  student: "Affordable and convenient student housing.",
+  professionals: "Short-term or long-term stays for working individuals.",
+  backpacker: "Budget-friendly options for adventurous travelers.",
+  medical: "Stay close to healthcare with comfort and care.",
+  event: "Elegant accommodations for events and weddings.",
+  airport: "Quick and convenient transit stays near airports."
+};
 
-// // Toggle hamburger menu on small screens
-// function toggleMenu() {
-//   const nav = document.getElementById("nav-links");
-//   nav.classList.toggle("active");
-// }
-
-// // Show dropdown menu under the clicked button
-// function showDropdown(event, sector) {
-//   currentSector = sector;
-
-//   const dropdown = document.getElementById("dropdown-menu");
-//   const rect = event.target.getBoundingClientRect();
-
-//   // Position the dropdown below the clicked button
-//   dropdown.style.left = rect.left + "px";
-//   dropdown.style.top = rect.bottom + "px";
-//   dropdown.style.display = "block";
-// }
-
-// // Handle dropdown option selection
-// function selectOption(type) {
-//   const dropdown = document.getElementById("dropdown-menu");
-//   dropdown.style.display = "none";
-
-//   // ✅ Close the mobile menu (hamburger) if open
-//   document.getElementById("nav-links").classList.remove("active");
-
-//   // ✅ Clear all sector boxes
-//   const allBoxes = document.querySelectorAll(".sector-box");
-//   allBoxes.forEach(box => box.innerHTML = "");
-
-//   // ✅ Update only the selected sector box
-//   const box = document.getElementById(`${currentSector}-box`);
-
-//   if (type === "image") {
-//     box.innerHTML = `<img src="images/${currentSector}.jpg" alt="${currentSector}" />`;
-//   } else if (type === "feature") {
-//     box.innerHTML = `
-//       <ul>
-//         <li>Comfortable Stay</li>
-//         <li>Affordable Pricing</li>
-//         <li>Easy Accessibility</li>
-//         <li>Best Services</li>
-//       </ul>`;
-//   }
-// }
-
-// // Hide dropdown when clicking outside
-// window.addEventListener("click", function (e) {
-//   const dropdown = document.getElementById("dropdown-menu");
-//   if (!dropdown.contains(e.target) && !e.target.matches("button")) {
-//     dropdown.style.display = "none";
-//   }
-// });
-
-
-
-// ✅ This function maps sector IDs to readable names
-function formatSectorName(id) {
-  const map = {
-    tourism: "Tourism & Travel",
-    corporate: "Corporate Business Stays",
-    student: "Student Accommodation",
-    professionals: "Working Professionals",
-    backpacker: "Backpacker Hostels",
-    medical: "Medical Tourism",
-    event: "Event & Wedding",
-    airport: "Airport Transit"
-  };
-  return map[id] || "";
-}
-
-// ✅ On page load — write sector names into each box
+// ✅ Set titles on load
 window.onload = () => {
   const allBoxes = document.querySelectorAll('.sector-box');
   allBoxes.forEach(box => {
     const id = box.id.replace("-box", "");
-    box.innerHTML = formatSectorName(id);
+    box.innerHTML = `<strong>${sectorTitles[id]}</strong>`;
   });
 };
 
-let currentSector = "";
-
-// ✅ Toggle hamburger menu on mobile
+// ✅ Toggle nav menu
 function toggleMenu() {
-  const nav = document.getElementById("nav-links");
-  nav.classList.toggle("active");
+  document.getElementById("nav-links").classList.toggle("active");
 }
 
-// ✅ Show dropdown menu under selected button
+// ✅ Show image with one feature
 function showDropdown(event, sector) {
-  currentSector = sector;
-
-  const dropdown = document.getElementById("dropdown-menu");
-  const rect = event.target.getBoundingClientRect();
-
-  dropdown.style.left = rect.left + "px";
-  dropdown.style.top = rect.bottom + "px";
-  dropdown.style.display = "block";
-}
-
-// ✅ When user selects "Image" or "Feature"
-function selectOption(type) {
-  const dropdown = document.getElementById("dropdown-menu");
-  dropdown.style.display = "none";
-
-  // ✅ Close mobile nav menu if open
-  document.getElementById("nav-links").classList.remove("active");
-
-  // ✅ Reset all boxes with their names
-  const allBoxes = document.querySelectorAll(".sector-box");
+  const allBoxes = document.querySelectorAll('.sector-box');
   allBoxes.forEach(box => {
     const id = box.id.replace("-box", "");
-    box.innerHTML = formatSectorName(id);
+    box.innerHTML = `<strong>${sectorTitles[id]}</strong>`;
   });
 
-  // ✅ Update only selected box with image/feature
-  const box = document.getElementById(`${currentSector}-box`);
+  const box = document.getElementById(`${sector}-box`);
+  box.innerHTML = `
+    <div class="box-content">
+      <img src="images/${sector}.jpg" alt="${sector}" />
+      <p class="feature-text">${sectorFeatures[sector]}</p>
+    </div>
+  `;
+  box.scrollIntoView({ behavior: "smooth", block: "center" });
 
-  if (type === "image") {
-    box.innerHTML = `<img src="images/${currentSector}.jpg" alt="${currentSector}" />`;
-  } else if (type === "feature") {
-    box.innerHTML = `
-      <ul>
-        <li>Comfortable Stay</li>
-        <li>Affordable Pricing</li>
-        <li>Easy Accessibility</li>
-        <li>Best Services</li>
-      </ul>`;
-  }
+
+  document.getElementById("nav-links").classList.remove("active");
 }
 
-// ✅ Hide dropdown if clicked outside
-window.addEventListener("click", function (e) {
-  const dropdown = document.getElementById("dropdown-menu");
-  if (!dropdown.contains(e.target) && !e.target.matches("button")) {
-    dropdown.style.display = "none";
-  }
-});
+
 
 
 
